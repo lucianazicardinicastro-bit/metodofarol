@@ -32,7 +32,7 @@
             /* Tons Neutros */
             --dark: #2c3e50;
             --text: #34495e;
-            --text-light: #7f8c8d;
+            --text-light: #555555;
             --light: #f8f9fa;
             --white: #ffffff;
             
@@ -98,6 +98,16 @@
             margin: 0 auto 50px;
         }
 
+        .support-text {
+            max-width: 800px;
+            margin: 40px auto 30px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--dark);
+            font-weight: 500;
+            line-height: 1.7;
+        }
+
         /* LAYOUT UTILS */
         .container {
             max-width: var(--container);
@@ -111,6 +121,8 @@
             align-items: center;
             justify-content: center;
         }
+
+        .mb-50 { margin-bottom: 50px; }
 
         /* BOTÕES */
         .btn-primary {
@@ -131,6 +143,7 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            margin-top: 20px;
         }
 
         .btn-primary:hover {
@@ -302,10 +315,14 @@
         .play-button svg { width: 30px; height: 30px; fill: currentColor; color: var(--primary); }
         .video-placeholder:hover .play-button svg { color: white; }
 
-        /* 3. PROBLEM SECTION */
-        .problem-section {
-            padding: 100px 0;
+        /* 3. PROBLEM & ERRORS SECTIONS */
+        .white-section {
+            padding: 80px 0;
             background: white;
+        }
+        
+        .bg-gray {
+            background: #f4f6f7;
         }
 
         .cards-grid {
@@ -313,6 +330,14 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             margin-top: 50px;
+        }
+        
+        .cards-grid-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        
+        .cards-grid-2 {
+            grid-template-columns: repeat(2, 1fr);
         }
 
         .feature-card {
@@ -323,6 +348,15 @@
             text-align: center;
             border: 1px solid rgba(0,0,0,0.05);
             transition: 0.3s;
+            height: 100%;
+        }
+
+        .feature-card.error-card {
+            border-bottom: 4px solid var(--accent);
+        }
+        
+        .feature-card.check-card {
+            border-bottom: 4px solid var(--success);
         }
 
         .feature-card:hover {
@@ -341,8 +375,8 @@
             color: var(--accent);
         }
         
-        .feature-card h3 { margin-bottom: 15px; font-size: 1.4rem; color: var(--dark); }
-        .feature-card p { font-size: 1rem; color: var(--text-light); }
+        .feature-card h3 { margin-bottom: 15px; font-size: 1.2rem; color: var(--dark); }
+        .feature-card p { font-size: 0.95rem; color: var(--text-light); }
 
         /* 4. SOLUTION SECTION */
         .solution-section {
@@ -430,7 +464,56 @@
         .bar:nth-child(3) { background: #f1c40f; }
         .bar:nth-child(4) { background: #e74c3c; }
 
-        /* 5. STEPS SECTION */
+        /* 5. TARGET AUDIENCE & COMPARATIVE */
+        .target-section {
+            padding: 100px 0;
+            background: #fdfdfd;
+        }
+
+        .comparative-section {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .comparison-table {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: var(--shadow);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comparison-table th {
+            background: var(--dark);
+            color: white;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: var(--accent);
+            width: 50%;
+            background: #fdf2f1;
+        }
+        
+        .comparison-table td:last-child {
+            font-weight: 600;
+            color: var(--success);
+            background: #f0faf4;
+        }
+
+        /* 6. STEPS SECTION */
         .steps-section { padding: 100px 0; background: #f8f9fa; }
         .steps-grid {
             display: grid;
@@ -445,6 +528,7 @@
             position: relative;
             border: 1px solid #eee;
             transition: 0.3s;
+            height: 100%;
         }
         .step-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
         
@@ -460,7 +544,7 @@
         .step-card h4 { position: relative; z-index: 1; margin-bottom: 12px; color: var(--primary); font-size: 1.25rem; }
         .step-card p { position: relative; z-index: 1; font-size: 0.95rem; color: var(--text-light); }
 
-        /* 6. SOCIAL PROOF */
+        /* 7. SOCIAL PROOF */
         .social-proof-section { background: white; padding: 100px 0; }
         .testimonials-grid {
             display: grid;
@@ -479,16 +563,17 @@
         .testimonial-box p { font-style: italic; margin-bottom: 25px; font-size: 1rem; color: #555; }
         .author { display: flex; align-items: center; gap: 15px; }
         .avatar {
-            width: 45px; height: 45px;
-            background: linear-gradient(135deg, #ddd, #eee);
+            width: 50px; height: 50px;
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-weight: bold; color: #777; font-size: 1.1rem;
+            font-weight: 700; color: white; font-size: 1.3rem;
+            box-shadow: 0 5px 15px rgba(142, 68, 173, 0.3);
         }
         .author span { font-weight: 700; font-size: 0.95rem; display: flex; flex-direction: column; color: var(--dark); }
         .author small { font-weight: 500; color: var(--success); font-size: 0.75rem; text-transform: uppercase; }
 
-        /* 7. BONUS SECTION */
+        /* 8. BONUS SECTION */
         .bonus-section { padding: 80px 0; background: #fff; }
         .tag { background: var(--accent); color: white; padding: 6px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: bold; margin-bottom: 15px; display: inline-block; }
         .bonus-item {
@@ -503,7 +588,7 @@
         .bonus-icon { font-size: 3rem; margin-bottom: 15px; display: block; }
         .bonus-item h4 { color: var(--dark); margin-bottom: 10px; }
 
-        /* 8. OFFER SECTION */
+        /* 9. OFFER SECTION */
         .offer-section { padding: 100px 0; background: #120524; color: white; }
         .offer-container {
             max-width: 900px;
@@ -558,7 +643,7 @@
         .guarantee-box h3 { font-size: 1.1rem; margin-bottom: 4px; color: var(--dark); }
         .guarantee-box p { font-size: 0.9rem; color: #777; margin: 0; }
 
-        /* 9. FAQ */
+        /* 10. FAQ */
         .faq-section { padding: 100px 0; background: #fff; }
         .faq-wrapper { max-width: 800px; margin: 0 auto; }
         details {
@@ -601,10 +686,12 @@
             
             .offer-body { flex-direction: column; padding: 30px; }
             .left-list { border-right: none; border-bottom: 1px solid #eee; padding-bottom: 30px; padding-right: 0; width: 100%; }
+            
+            .cards-grid, .cards-grid-4, .cards-grid-2 { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
-            .cards-grid, .steps-grid, .testimonials-grid { grid-template-columns: 1fr; }
+            .cards-grid, .cards-grid-4, .cards-grid-2, .steps-grid, .testimonials-grid { grid-template-columns: 1fr; }
             .section-title { font-size: 2rem; }
             .footer-content { flex-direction: column; gap: 20px; }
             .links { margin-top: 10px; }
@@ -663,7 +750,7 @@
     </header>
 
     <!-- BLOCO 03: PROBLEMATIZAÇÃO -->
-    <section class="problem-section">
+    <section class="white-section">
         <div class="container">
             <div class="text-center">
                 <h2 class="section-title">Você já passou por algo assim?</h2>
@@ -693,10 +780,54 @@
                     <p>Vive com a dúvida se está na profissão errada ou com medo de não ser bom o bastante?</p>
                 </div>
             </div>
+
+            <!-- TEXTO DE APOIO INSERIDO -->
+            <p class="support-text">
+                É como se você estivesse em um barco à deriva, com o motor travado e sem um farol para te guiar. Sei que você se esforça, mas a culpa não é sua! A maioria dos métodos foca em entender o outro, e não em primeiro te dar a clareza sobre quem VOCÊ é. Chegou a hora de resolver isso de forma definitiva. Continue lendo com atenção.
+            </p>
+            <div class="text-center">
+                <a href="#oferta" class="btn-primary">SIM, QUERO RESOLVER ISSO AGORA</a>
+            </div>
         </div>
     </section>
 
-    <!-- BLOCO 04: A SOLUÇÃO -->
+    <!-- BLOCO 04: ERROS COMUNS (NOVA SEÇÃO INSERIDA) -->
+    <section class="white-section bg-gray">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Aqui estão os erros que podem atrapalhar o seu resultado:</h2>
+                <p class="section-subtitle">Veja adiante como resolver tudo isso de forma definitiva!</p>
+            </div>
+            
+            <div class="cards-grid cards-grid-4">
+                <div class="feature-card error-card">
+                    <h3>Crença Limitante</h3>
+                    <p>Pensar que “Eu sou assim e pronto, não dá pra mudar”, limitando seu potencial.</p>
+                </div>
+                <div class="feature-card error-card">
+                    <h3>Falta de Clareza</h3>
+                    <p>Não ter clareza sobre seu próprio perfil antes de tentar resolver um conflito.</p>
+                </div>
+                <div class="feature-card error-card">
+                    <h3>Superficialidade</h3>
+                    <p>Fazer apenas o que dizem nos livros, mas ignorar a origem das suas reações emocionais.</p>
+                </div>
+                <div class="feature-card error-card">
+                    <h3>Foco no Outro</h3>
+                    <p>Buscar o entendimento do outro sem antes se entender de forma profunda.</p>
+                </div>
+            </div>
+
+            <p class="support-text">
+                Se você se identificou, fique tranquilo: a maioria das pessoas que buscam autoconhecimento faz a mesma coisa. Você não precisa mais se sentir “travado” e “confuso”. O seu avanço está sendo impedido por uma falha de método. Mas a boa notícia é que existe uma solução única e diferente, mais fácil do que você imagina, que foca no ponto de partida: você!
+            </p>
+            <div class="text-center">
+                <a href="#oferta" class="btn-primary">SIM, QUERO RESOLVER ISSO AGORA</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOCO 05: A SOLUÇÃO -->
     <section class="solution-section">
         <div class="container">
             <div class="flex-wrapper">
@@ -727,7 +858,12 @@
                             </div>
                         </li>
                     </ul>
-                    <br>
+
+                    <!-- TEXTO DE APOIO INSERIDO -->
+                    <p style="color: rgba(255,255,255,0.8); margin-bottom: 25px;">
+                        O MÉTODO FAROL 4.2 não é apenas um teste, é um mapa mental do seu comportamento. Ele te entrega o que você precisa: CLAREZA. Você não terá apenas o diagnóstico, mas o acompanhamento de especialistas em 3 formatos. É uma solução única que te dará Direção e Propósito para explorar seus pontos fortes.
+                    </p>
+
                     <a href="#oferta" class="btn-primary">QUERO MEU RELATÓRIO AGORA</a>
                 </div>
                 <div class="col-image">
@@ -749,7 +885,92 @@
         </div>
     </section>
 
-    <!-- BLOCO 05: COMO FUNCIONA -->
+    <!-- BLOCO 06: PARA QUEM É (NOVA SEÇÃO INSERIDA) -->
+    <section class="target-section">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Para quem esta solução foi desenvolvida?</h2>
+                <p class="section-subtitle">Ouvimos centenas de pessoas e entendemos exatamente o que você precisa!</p>
+            </div>
+            
+            <div class="cards-grid cards-grid-2">
+                <div class="feature-card check-card">
+                    <h3>Para Quem É</h3>
+                    <ul class="benefit-list" style="text-align: left;">
+                        <li><span class="check-icon">✓</span> Pessoas cansadas de se sentir perdidas.</li>
+                        <li><span class="check-icon">✓</span> Quem tem ruminação mental.</li>
+                        <li><span class="check-icon">✓</span> Quem passa por mal-entendidos.</li>
+                        <li><span class="check-icon">✓</span> Quem deseja ser mais seguro.</li>
+                    </ul>
+                </div>
+                <div class="feature-card check-card" style="border-bottom: 4px solid var(--dark);">
+                    <h3>Não É Para</h3>
+                    <ul class="benefit-list" style="text-align: left;">
+                        <li><span class="check-icon" style="background:#555;">X</span> Quem busca soluções milagrosas.</li>
+                        <li><span class="check-icon" style="background:#555;">X</span> Quem acha que testes não funcionam.</li>
+                        <li><span class="check-icon" style="background:#555;">X</span> Quem não quer se aprofundar.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="support-text">
+                Se você se encaixa nos tópicos acima, está no lugar certo. O MÉTODO FAROL 4.2 foi desenhado para quem quer mais do que autoajuda: quer clareza com 97,5% de acerto e acompanhamento real para transformar conflitos em compreensão. Você não precisa mais se justificar ou carregar culpas. Sua vida resolvida e leve te espera!
+            </p>
+            <div class="text-center">
+                <a href="#oferta" class="btn-primary">SIM, QUERO RESOLVER ISSO AGORA</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOCO 07: COMPARATIVO (NOVA SEÇÃO INSERIDA) -->
+    <section class="comparative-section bg-gray">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title">Veja a diferença</h2>
+                <p class="section-subtitle">Comece hoje e acelere seus resultados.</p>
+            </div>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Sem o Método</th>
+                        <th>Com o Método Farol 4.2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Confusão Mental</td>
+                        <td>Clareza Absoluta</td>
+                    </tr>
+                    <tr>
+                        <td>Conflitos Constantes</td>
+                        <td>Direção e Harmonia</td>
+                    </tr>
+                    <tr>
+                        <td>Insegurança</td>
+                        <td>Segurança nas Decisões</td>
+                    </tr>
+                    <tr>
+                        <td>Crenças Limitantes</td>
+                        <td>Desbloqueio de Potencial</td>
+                    </tr>
+                    <tr>
+                        <td>Ruminação</td>
+                        <td>Paz Emocional</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="support-text">
+                A clareza liberta e simplifica. Não perca mais tempo tentando adivinhar quem você é. Comece hoje diferente!
+            </p>
+            <div class="text-center">
+                <a href="#oferta" class="btn-primary">SIM, QUERO RESOLVER ISSO AGORA</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOCO 08: COMO FUNCIONA -->
     <section class="steps-section">
         <div class="container">
             <div class="text-center">
@@ -782,7 +1003,7 @@
         </div>
     </section>
 
-    <!-- BLOCO 06: PROVA SOCIAL -->
+    <!-- BLOCO 09: PROVA SOCIAL -->
     <section class="social-proof-section">
         <div class="container">
             <h2 class="section-title text-center">Quem usou, aprovou</h2>
@@ -812,15 +1033,19 @@
                     </div>
                 </div>
             </div>
+            <div class="text-center">
+                <a href="#oferta" class="btn-primary">SIM, QUERO RESOLVER ISSO AGORA</a>
+            </div>
         </div>
     </section>
 
-    <!-- BLOCO 07: BÔNUS -->
+    <!-- BLOCO 10: BÔNUS -->
     <section class="bonus-section">
         <div class="container">
             <div class="text-center mb-50">
                 <span class="tag">GRATUITO HOJE</span>
                 <h2 class="section-title">Bônus Exclusivos</h2>
+                <p class="section-subtitle">Muito além de um método, uma solução completa para você.</p>
             </div>
             <div class="cards-grid">
                 <div class="bonus-item">
@@ -839,10 +1064,17 @@
                     <p>Comunicação assertiva com crianças.</p>
                 </div>
             </div>
+            <!-- TEXTO DE APOIO INSERIDO -->
+            <p class="support-text">
+                Você está levando mais de R$ 441,00 em bônus gratuitamente hoje.
+            </p>
+            <div class="text-center">
+                <a href="#oferta" class="btn-primary">SIM, QUERO RESOLVER ISSO AGORA</a>
+            </div>
         </div>
     </section>
 
-    <!-- BLOCO 08: OFERTA FINAL -->
+    <!-- BLOCO 11: OFERTA FINAL -->
     <section id="oferta" class="offer-section">
         <div class="container">
             <div class="offer-container">
@@ -887,7 +1119,7 @@
         </div>
     </section>
 
-    <!-- BLOCO 09: FAQ -->
+    <!-- BLOCO 12: FAQ -->
     <section class="faq-section">
         <div class="container">
             <h2 class="section-title text-center">Dúvidas Frequentes</h2>
